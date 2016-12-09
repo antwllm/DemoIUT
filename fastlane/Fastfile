@@ -1,0 +1,26 @@
+
+desc "Distribute a new app"
+lane :apps_build do 
+
+# 	1 - Demander les change log à l’utilisateur
+	changelog = prompt(text: "Enter the change log: ", multi_line_end_keyword: "END")
+	
+	
+	gym(
+		workspace: "DemoIUT.xcworkspace",
+		scheme: "DemoIUT",
+		clean: true,
+		configuration: "Release",
+		use_legacy_build_api: true,
+		output_directory: "./build/"
+	)
+
+	
+	crashlytics(
+    	api_token: "fc9d87b2efd9490e1a216989a7ebb86e7d59dfed",
+    	build_secret: "34fe58a4e2ba0b70c2542972f64f088e9b50c159f18624ff3bd2ac2f453874f4",
+    	emails: ["william@appsolute.fr"]
+  )
+  
+end
+

@@ -1,0 +1,6 @@
+framework module Pods_DemoIUT {
+  umbrella header "Pods-DemoIUT-umbrella.h"
+
+  export *
+  module * { export * }
+}
